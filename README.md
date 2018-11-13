@@ -13,4 +13,4 @@
                                          titleViewConfig:config)
 ```
 ## 效果图
-![image](https://github.com/heyode/HETitleView/blob/master/HETitleView.gif)
+![image](https://github.com/heyode/HETitleView/blob/master/demo.gif)
