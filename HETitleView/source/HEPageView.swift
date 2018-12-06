@@ -44,6 +44,8 @@ class HETitleViewConfig : NSObject{
     open var titleAdditionalWith : CGFloat = 30
     // scrollView水平方向的左右内边距
     open var scrollViewHorizontalMargin : CGFloat = 20
+    // titleBtn的缩放比例
+    open var titleScale : CGFloat = 1.2
     
 }
 enum HETitleViewIndicatorViewWidth {
@@ -158,6 +160,9 @@ class HETitleView: UIView {
     
     @objc private func btnClick(btn : UIButton){
         preBtn.isSelected = false
+        UIView.animate(withDuration: 0.25) {
+            self.preBtn.transform = CGAffineTransform.identity
+        }
         btn.isSelected = !btn.isSelected
         if let callBack = titleViewClickCallBack{
             callBack(btn.tag - btnBaseTag)
@@ -170,6 +175,12 @@ class HETitleView: UIView {
         setIndicatorViewCenter(btn: btn)
         setScrollViewConentOffset(btn: btn)
         preBtn = btn
+        if btn.isSelected {
+            UIView.animate(withDuration: 0.25) {
+                btn.transform = CGAffineTransform.init(scaleX: self.config.titleScale, y: self.config.titleScale)
+            }
+        }
+        
     }
     
     private func setScrollViewConentOffset(btn:UIButton) {

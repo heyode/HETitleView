@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         view.addSubview(titleLab)
         
         let config = HETitleViewConfig()
+        config.indicatorViewWidthType = .adaptivelyWidth 
         let titles = ["全部","外科","内科","生殖科","耳鼻喉科","内科","眼科","口腔科"]
         
         let titleView = HETitleView.init(frame: CGRect.init(x: 0, y: 80, width: UIScreen.main.bounds.size.width, height: 59),
